@@ -2,7 +2,12 @@ const messageDiv=document.getElementById("message");
 const form=document.getElementById("FormDemande");
 const tableBody=document.getElementById("tableBody");
 
-let demandes=[];
+let demandes=JSON.parse(localStorage.getItem("demandes"))||[]
+function saveDemandes(){
+localStorage.setItem("demandes",JSON.stringify(demandes))
+
+
+}
 function  afficherMessage(texte,type){
     messageDiv.textContent=texte;
     messageDiv.className='message '+ type;
@@ -29,6 +34,7 @@ function  afficherMessage(texte,type){
  }
     function supprimmerDemande(index){
         demandes.splice(index,1);
+        saveDemandes();
         afficherDemandes();}
     
     
@@ -43,8 +49,9 @@ function  afficherMessage(texte,type){
    if (nom && prenom && tel && email && motif && date) { 
     const demande={
                 nom,prenom,tel,email,motif,date
-            };
+            };cc
             demandes.push(demande);
+            saveDemandes();
             afficherDemandes();
             afficherMessage("Demande ajoutée avec succès","success");
             form.reset();  // Vider les shamps de formulaire 
@@ -56,3 +63,4 @@ function  afficherMessage(texte,type){
     })
 
 
+document.addEventListener("DOMContentLoaded", afficherDemandes);
