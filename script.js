@@ -3,7 +3,7 @@ const form=document.getElementById("FormDemande");
 const tableBody=document.getElementById("tableBody");
 
 let currentPage = 1;
-const itemsPerPage = 2;
+const itemsPerPage = 5;
 
 let demandes=JSON.parse(localStorage.getItem("demandes"))||[]
 function saveDemandes(){
