@@ -76,6 +76,10 @@ background-color: rgb(93, 93, 240);
     border-radius: 4px;
     display: none;
 }
+.table-wrapper {
+  overflow-x: auto;
+}
+
 .message.success {
   background-color: #e6f6ea;
   color: #2d7a3e;
@@ -132,6 +136,7 @@ button:hover {
 @media screen and (max-width: 992px) {
   .form-grid {
     grid-template-columns: 1fr; /* une seule colonne pour tablettes */
+    gap: 1px;
   }
 
   .card {
@@ -156,6 +161,9 @@ button:hover {
 
   table, th, td {
     font-size: 0.9rem;
+  }
+  body, .card {
+    background-attachment: scroll;
   }
 }
 
